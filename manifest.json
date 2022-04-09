@@ -1,6 +1,6 @@
 {
-  "name": "EMOC Document",
-  "short_name": "EMOC Document",
+  "name": "EMOC",
+  "short_name": "EMOC",
   "start_url": "/EMOCDoc/",
   "scope": "/EMOCDoc/",
   "display": "standalone",
