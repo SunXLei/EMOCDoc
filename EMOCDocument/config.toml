@@ -1,0 +1,4 @@
+baseURL = 'https://sunxlei.github.io/EMOCDoc/'
+languageCode = 'en-us'
+title = 'EMOC Document'
+theme = "hugo-book"
