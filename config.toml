@@ -6,6 +6,14 @@ theme = "hugo-book"
 [params]
     BookLogo = 'emoc.png'
 
+
+
+
+
+
+
+
+
 # code highlight settings
 [markup]
   [markup.highlight]
