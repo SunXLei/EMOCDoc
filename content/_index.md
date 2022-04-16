@@ -1,9 +1,23 @@
 ---
-title: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+title: EMOC
 type: docs
 ---
 
 # Acerbo datus maxime
+
+code test:
+
+```c++
+int main()
+{
+    std::vector<int> array;
+    std::cout<<"wuhu!\n";
+}
+```
+
+
+
+
 
 {{< columns >}}
 ## Astris ipse furtiva
