@@ -3,6 +3,7 @@ languageCode = 'en-us'
 title = 'EMOC'
 theme = "hugo-book"
 
+BookLogo = 'emoc.png'
 
 # code highlight settings
 [markup]
