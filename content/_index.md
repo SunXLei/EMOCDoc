@@ -3,7 +3,7 @@ title: EMOC
 type: docs
 ---
 
-# Acerbo datus maxime
+# EMOC: Evolutionary Multi-objective Optimization in C++
 
 code test:
 
