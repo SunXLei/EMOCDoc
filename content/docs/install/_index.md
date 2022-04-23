@@ -71,4 +71,4 @@ bash ./build_linux.sh
 bash ./build_macos.sh
 ```
 
-The **'EMOC'** file will appear in the root directory when building successfully.
+The executable file **'EMOC'** will appear in the root directory when building successfully.
