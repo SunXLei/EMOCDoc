@@ -29,3 +29,6 @@ theme = "hugo-book"
     noHl = false
     style = 'pygments'
     tabWidth = 4
+    
+[markup.goldmark.renderer]
+  unsafe = true
