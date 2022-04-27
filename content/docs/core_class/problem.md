@@ -54,7 +54,7 @@ The parent class of all test problems in EMOC.
 
 <br/>
 
-**Public Methods:**
+**Public Member Functions:**
 
 - [void CalObj(Individual\* ind)]({{< relref "#CalObj" >}})
 - [void CalCon(Individual\* ind)]({{< relref "#CalCon" >}})
