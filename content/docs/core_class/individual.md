@@ -11,11 +11,11 @@ BookToC: false
 *File position: **/EMOC/src/core/individual.h** and **/EMOC/src/core/individual.cpp***
 
 {{< hint info>}}
-**class Individual (dec_num: int, obj_num: int):**
+**class Individual(dec_num, obj_num)**
 
 {{< /hint >}}
 
-The class for each solution in optimization results.
+The class for each individual in the population.
 
 <style>
     .emoc_doc_table_title{
@@ -23,6 +23,7 @@ The class for each solution in optimization results.
     }
     .emoc_doc_table_content{
         background-color:#FFFFFF;
+        width:100%;
     }
 </style>
 
@@ -33,21 +34,20 @@ The class for each solution in optimization results.
     </tr>
     <tr>
         <td class="emoc_doc_table_content" >
-            <strong>dec_num:</strong><br/>&nbsp &nbsp the dimension of decision variable<br/>
-            <strong>dec_num:</strong><br/>&nbsp &nbsp the dimension of decision variable<br/>
-            <strong>dec_num:</strong><br/>&nbsp &nbsp the dimension of decision variable<br/>
-            <strong>dec_num:</strong><br/>&nbsp &nbsp the dimension of decision ethe dimension of decision ethe dimension of decision eecision eecision eecision eethe dimension of decision ethe dimension of decision eecision eecision eecision e <br/>
+            <strong>dec_num:<i>int, default=None</i></strong><br/>&nbsp &nbsp The number of decision variables.<div style="line-height:75%;"><br></div>
+            <strong>obj_num:<i>int, default=None</i></strong><br/>&nbsp &nbsp The number of objectives.<br/>
         </td>
     </tr>
     <tr class="emoc_doc_table_title">
-        <td rowspan="2" ALIGN="left" VALIGN="top"  class="emoc_doc_table_title"><strong class="wuhu">Parameter:</strong></td>
+        <td rowspan="2" ALIGN="left" VALIGN="top"  class="emoc_doc_table_title"><strong class="wuhu">Member variables:</strong></td>
     </tr>
     <tr >
         <td class="emoc_doc_table_content">
-            <strong>dec_num:</strong><br/>&nbsp &nbsp the dimension of decision variable<br/>
-            <strong>dec_num:</strong><br/>&nbsp &nbsp the dimension of decision variable<br/>
-            <strong>dec_num:</strong><br/>&nbsp &nbsp the dimension of decision variable<br/>
-            <strong>dec_num:</strong><br/>&nbsp &nbsp the dimension of decision e<br/>
+            <strong><i>(public)</i> dec_:<i>std::vector&ltdouble&gt</i></strong><br/>&nbsp &nbsp Decision variables of this individual. The size of this <i>std::vector</i> is dec_num. <div style="line-height:75%;"><br></div>
+            <strong><i>(public)</i> obj_:<i>std::vector&ltdouble&gt</i></strong><br/>&nbsp &nbsp Objectives of this individual. The size of this <i>std::vector</i> is obj_num.<div style="line-height:75%;"><br></div>
+            <strong><i>(public)</i> con_:<i>std::vector&ltdouble&gt</i></strong><br/>&nbsp &nbsp Constraints of this individual. The size of this <i>std::vector</i> is obj_num.<div style="line-height:75%;"><br></div>
+            <strong><i>(public)</i> rank_:<i>int</i></strong><br/>&nbsp &nbsp The rank index of this individual in the non-dominated sort (NDS) results of current population. <i>Rank 0</i> represents the first front in NDS.<div style="line-height:75%;"><br></div>
+            <strong><i>(public)</i> fitness_:<i>double</i></strong><br/>&nbsp &nbsp The fitness of this individual.<br/>
         </td>
     </tr>
     </tbody>
