@@ -10,7 +10,7 @@ BookToC: false
 *File position: **/EMOC/src/problem/problem.h** and **/EMOC/src/problem/problem.cpp***
 
 {{< hint info>}}
-**class Problem(dec_num, obj_num)**
+**class Problem(int dec_num, int obj_num)**
 
 {{< /hint >}}
 
@@ -62,7 +62,6 @@ The parent class of all test problems in EMOC.
 
 
 <div id="CalObj">
-
 {{< hint warning>}}
 **void CalObj(Individual\* ind)**
 
@@ -89,7 +88,7 @@ This function is a pure virtual function which must be implemented in subclass.
     </tr>
     <tr >
         <td class="emoc_doc_table_content">
-			<br/>
+			<strong>void</strong>
         </td>
     </tr>
     </tbody>
@@ -108,7 +107,7 @@ This function is a pure virtual function which must be implemented in subclass.
 
 Calculate the constraint function values. 
 
-This function is a virtual function which can be implemented in subclass. It has an empty implementation by default.
+This function is a virtual function which can be implemented in subclass. It has an empty implementation by default. So users can leave it alone when implementing test problems without constraints.
 
 <table class="emoc_doc_table" style="overflow-x: hidden">
     <tbody>
@@ -125,8 +124,9 @@ This function is a virtual function which can be implemented in subclass. It has
     </tr>
     <tr >
         <td class="emoc_doc_table_content">
-            <br/>
+            <strong>void</strong>
         </td>
     </tr>
     </tbody>
 </table>
+

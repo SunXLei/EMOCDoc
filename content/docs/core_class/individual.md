@@ -11,7 +11,7 @@ BookToC: false
 *File position: **/EMOC/src/core/individual.h** and **/EMOC/src/core/individual.cpp***
 
 {{< hint info>}}
-**class Individual(dec_num, obj_num)**
+**class Individual(int dec_num, int obj_num)**
 
 {{< /hint >}}
 

@@ -7,14 +7,14 @@ BookToC: false
 
 # EMOCManager Class
 
-*File position: **/EMOC/src/problem/problem.h** and **/EMOC/src/problem/problem.cpp***
+*File position: **/EMOC/src/core/emoc_manager.h** and **/EMOC/src/core/emoc_manager.cpp***
 
 {{< hint info>}}
-**class Problem(dec_num, obj_num)**
+**class EMOCManager()**
 
 {{< /hint >}}
 
-The parent class of all test problems in EMOC.
+`EMOCManager` is the manager class of EMOC which controls the command mode and GUI mode. 
 
 <style>
     .emoc_doc_table_title{
@@ -33,8 +33,7 @@ The parent class of all test problems in EMOC.
     </tr>
     <tr>
         <td class="emoc_doc_table_content" >
-            <strong>dec_num: <i>int, default=None</i></strong><br/>&nbsp &nbsp The number of decision variables setting for the problem.<div style="line-height:75%;"><br></div>
-            <strong>obj_num: <i>int, default=None</i></strong><br/>&nbsp &nbsp The number of objective functions setting for the problem.<br/>
+            <strong>void</strong>
         </td>
     </tr>
     <tr class="emoc_doc_table_title">
@@ -42,37 +41,43 @@ The parent class of all test problems in EMOC.
     </tr>
     <tr >
         <td class="emoc_doc_table_content">
-            <strong><i>(public)</i> dec_num_: <i>int</i></strong><br/>&nbsp &nbsp The number of decision variables set by users. It is equal to the given dec_num. <div style="line-height:75%;"><br></div>
-            <strong><i>(public)</i> obj_num_: <i>int</i></strong><br/>&nbsp &nbsp The number of objective functions set by users. It is equal to the given obj_num.<div style="line-height:75%;"><br></div>
-            <strong><i>(public)</i> lower_bound_: <i>std::vector&ltdouble&gt</i></strong><br/>&nbsp &nbsp The lower bound of each decision variable. The size of this <i>std::vector</i> is dec_num.<div style="line-height:75%;"><br></div>
-            <strong><i>(public)</i> upper_bound_: <i>std::vector&ltdouble&gt</i></strong><br/>&nbsp &nbsp The upper bound of each decision variable. The size of this <i>std::vector</i> is dec_num.<div style="line-height:75%;"><br></div>
-            <strong><i>(public)</i> encoding_: <i>enum of EncodingType</i></strong><br/>&nbsp &nbsp Encoding type of solutions in this problem. There are three different types: <i>REAL</i>,  <i>BINARY</i> and  <i>PERMUTATION</i> which corresponds to real encoding, binary encoding, permutation encoding respectively. <br/>
+            <strong><i>(private)</i> is_plot_: <i>bool</i></strong><br/>&nbsp &nbsp Whether to activate plot function. <div style="line-height:75%;"><br></div>
+            <strong><i>(private)</i> is_gui_: <i>bool</i></strong><br/>&nbsp &nbsp Whether to enable gui mode.<div style="line-height:75%;"><br></div>
+            <strong><i>(private)</i> is_experiment_: <i>bool</i></strong><br/>&nbsp &nbsp Whether in experiment module of gui mode.<div style="line-height:75%;"><br></div>
+            <strong><i>(private)</i> is_test_pause_: <i>bool</i></strong><br/>&nbsp &nbsp Whether current run is paused in test module of gui mode.<div style="line-height:75%;"><br></div>
+            <strong><i>(private)</i> is_test_finish_: <i>bool</i></strong><br/>&nbsp &nbsp Whether current run is finished in test module of gui mode. <div style="line-height:75%;"><br></div>
+            <strong><i>(private)</i> is_experiment_pause_: <i>bool</i></strong><br/>&nbsp &nbsp Whether current run is finished in experiment module of gui mode. <div style="line-height:75%;"><br></div>
+            <strong><i>(private)</i> is_experiment_finish_: <i>bool</i></strong><br/>&nbsp &nbsp Whether current run is finished in experiment module of gui mode. <div style="line-height:75%;"><br></div>
+            <strong><i>(private)</i> g_GlobalSettingsArray: <i>std::vector&ltGlobal*&gt</i></strong><br/>&nbsp &nbsp An array of pointer to <i>Global</i>, it is reserved for different threads. The size of the vector is MAX_THREAD_NUM which is a macro definition in EMOC. By default the value is 128.<div style="line-height:75%;"><br></div>
         </td>
     </tr>
     </tbody>
 </table>
 
+**Note: Most of the private member variables can be set or got by the corresponding `Get` and `Set` functions. For more details, please check the source code.**
+
 <br/>
 
 **Public Methods:**
 
-- [void CalObj(Individual\* ind)]({{< relref "#CalObj" >}})
-- [void CalCon(Individual\* ind)]({{< relref "#CalCon" >}})
+- [static EMOCManager* Instance()]({{< relref "#Instance" >}})
+- [void Run()]({{< relref "#Run" >}})
+- [void ExperimentModuleRun(std::vector<EMOCParameters> experiment_tasks, int thread_num)]({{< relref "#ExperimentModuleRun" >}})
 
 
 
-<div id="CalObj">
+<div id="Instance">
 
 {{< hint warning>}}
-**void CalObj(Individual\* ind)**
+**static EMOCManager\* Instance()**
 
 {{< /hint >}}
 
 </div>
 
-Calculate the objective function values.
+Get the pointer to current EMOCManager object.
 
-This function is a pure virtual function which must be implemented in subclass.
+In EMOC, the EMOCManager class utilize the singleton design mode. So the object can be retrieved anywhere by `EMOCManager::Instance()` directly.
 
 <table class="emoc_doc_table" style="overflow-x: hidden">
     <tbody >
@@ -81,7 +86,7 @@ This function is a pure virtual function which must be implemented in subclass.
     </tr>
     <tr >
         <td class="emoc_doc_table_content">
-            <strong>ind: <i>Individual*, default=None</i></strong><br/>&nbsp &nbsp Pointer to the individual which need to calculate the objectives.
+             <strong>void</strong>
         </td>
     </tr>
     <tr class="emoc_doc_table_title">
@@ -89,6 +94,7 @@ This function is a pure virtual function which must be implemented in subclass.
     </tr>
     <tr >
         <td class="emoc_doc_table_content">
+            <strong>s_Instance: <i>EMOCManager*</i></strong><br/>&nbsp &nbsp Pointer to the current EMOCManager object iteself.
 			<br/>
         </td>
     </tr>
@@ -97,18 +103,16 @@ This function is a pure virtual function which must be implemented in subclass.
 
 
 
-<div id="CalCon">
+<div id="Run">
 
 {{< hint warning>}}
-**void CalCon(Individual\* ind)**
+**void Run()**
 
 {{< /hint >}}
 
 </div>
 
-Calculate the constraint function values. 
-
-This function is a virtual function which can be implemented in subclass. It has an empty implementation by default.
+The run function for command line mode in EMOC.
 
 <table class="emoc_doc_table" style="overflow-x: hidden">
     <tbody>
@@ -117,7 +121,7 @@ This function is a virtual function which can be implemented in subclass. It has
     </tr>
     <tr>
         <td class="emoc_doc_table_content" >
-            <strong>ind: <i>Individual*, default=None</i></strong><br/>&nbsp &nbsp Pointer to the individual which need to calculate the constraints.
+            <strong>void</strong>
         </td>
     </tr>
     <tr class="emoc_doc_table_title">
@@ -125,8 +129,44 @@ This function is a virtual function which can be implemented in subclass. It has
     </tr>
     <tr >
         <td class="emoc_doc_table_content">
-            <br/>
+            <strong>void</strong>
         </td>
     </tr>
     </tbody>
 </table>
+
+
+
+<div id="ExperimentModuleRun">
+
+{{< hint warning>}}
+**void ExperimentModuleRun(std::vector\<EMOCParameters\> experiment_tasks, int thread_num)**
+
+{{< /hint >}}
+
+</div>
+
+The run function for experiment module of gui mode in EMOC.
+
+<table class="emoc_doc_table" style="overflow-x: hidden">
+    <tbody >
+    <tr>
+        <td rowspan="2" ALIGN="left" VALIGN="top"  class="emoc_doc_table_title"><strong class="wuhu">Parameter:</strong></td>
+    </tr>
+    <tr >
+        <td class="emoc_doc_table_content">
+            <strong>experiment_tasks: <i>std::vector&ltEMOCParameters&gt, default=None</i></strong><br/>&nbsp &nbsp All EMOC tasks need to be completed which are configured in experiment module of gui mode.<div style="line-height:75%;"><br></div>
+            <strong>thread_num: <i>int, default=None</i></strong><br/>&nbsp &nbsp The number of enabled thread.
+        </td>
+    </tr>
+    <tr class="emoc_doc_table_title">
+        <td rowspan="2" ALIGN="left" VALIGN="top"  class="emoc_doc_table_title"><strong class="wuhu">Returns:</strong></td>
+    </tr>
+    <tr >
+        <td class="emoc_doc_table_content">
+             <strong>void</strong>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
