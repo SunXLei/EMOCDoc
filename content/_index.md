@@ -1,55 +1,57 @@
 ---
 title: EMOC
 type: docs
+BookToC: true
 ---
 
 # EMOC: Evolutionary Multi-objective Optimization in C++
 
-code test:
-
-```c++
-int main()
-{
-    std::vector<int> array;
-    std::cout<<"wuhu!\n";
-}
-```
 
 
+<div align="center">
+
+<img src="./emoc_big.png" width = "300px" height = "100px" align=center />
+
+</div>
+
+EMOC stands for **E**volutionary **M**ulti-objective **O**ptimization in **C**++ which is a framework for single-objective and multi-objective optimization. This library is mainly for research and educational purposes.
+
+For installing EMOC, please refer to the section [Install]({{< ref "/docs/install" >}}). We also provide a [Quick Start]({{< ref "/docs/quickstart/user_interface_mode" >}}) section for users to get started.
 
 
 
-{{< columns >}}
-## Astris ipse furtiva
+## Features
 
-Est in vagis et Pittheus tu arge accipiter regia iram vocatur nurus. Omnes ut
-olivae sensit **arma sorori** deducit, inesset **crudus**, ego vetuere aliis,
-modo arsit? Utinam rapta fiducia valuere litora _adicit cursu_, ad facies
+- **Rich algorithms and problems**
 
-<--->
+  EMOC implemented about 30 algorithms and more than 80 test problems which both include single-objective and multi-objective types.
 
-## Suis quot vota
+- **Developed in C++ and Cross-platform**
 
-Ea _furtique_ risere fratres edidit terrae magis. Colla tam mihi tenebat:
-miseram excita suadent es pecudes iam. Concilio _quam_ velatus posset ait quod
-nunc! Fragosis suae dextra geruntur functus vulgata.
-{{< /columns >}}
+  All the source code of EMOC are wrote in C++. So the running efficiency is guaranteed when comparing other implementation with python, java or matlab. We also provide cross-platform compatibility for users with different operator systems.
 
+- **Friendly GUI**
 
-## Tempora nisi nunc
+  EMOC provides a user-friendly GUI with the function of configuring parameters of once-run and experiments without writing a single line of code.
 
-Lorem **markdownum** emicat gestu. Cannis sol pressit ducta. **Est** Idaei,
-tremens ausim se tutaeque, illi ulnis hausit, sed, lumina cutem. Quae avis
-sequens!
+- **Various Optimization Types**
 
-    var panel = ram_design;
-    if (backup + system) {
-        file.readPoint = network_native;
-        sidebar_engine_device(cell_tftp_raster,
-                dual_login_paper.adf_vci.application_reader_design(
-                graphicsNvramCdma, lpi_footer_snmp, integer_model));
-    }
+  EMOC supports unconstraint optimization, constraint optimization and combinatorial optimization (including binary encoding and permutation encoding).
 
-## Locis suis novi cum suoque decidit eadem
+- **Save into Excel or Latex**
 
-Idmoniae ripis, at aves, ali missa adest, ut _et autem_, et ab?
+  Users can save the experiment results of EMOC in the format of Excel or Latex.
+
+  
+
+## 3rd Party Libraries
+
+- [GLFW](https://www.glfw.org/)
+- [ALGLIB](https://www.alglib.net/)
+- [Dear Imgui](https://github.com/ocornut/imgui)
+- [pybind11](https://github.com/pybind/pybind11)
+- [cxxopts](https://github.com/jarro2783/cxxopts)
+- [stb_image](https://github.com/nothings/stb)
+- [Gnuplot](http://www.gnuplot.info/)
+- [CMake](https://cmake.org/)
+- [Font-Awesome](https://github.com/FortAwesome/Font-Awesome)

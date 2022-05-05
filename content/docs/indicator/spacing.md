@@ -1,0 +1,54 @@
+---
+weight: 6
+bookFlatSection: false
+title: "Spacing"
+BookToC: false
+---
+# Spacing
+
+*File position: **/EMOC/src/metric/spacing.h** and **/EMOC/src/metric/spacing.cpp***
+
+<style>
+    .emoc_doc_table_title{
+        background-color:#F0F7FA;
+    }
+    .emoc_doc_table_content{
+        background-color:#FFFFFF;
+        width:100%;
+    }
+</style>
+
+<div>
+
+{{< hint warning>}}
+**double CalculateSpacing(Individual \*\*pop, int pop_num, int obj_num)**
+
+{{< /hint >}}
+
+</div>
+
+Calculate the spacing value of current population `pop`. 
+
+<table class="emoc_doc_table" style="overflow-x: hidden">
+    <tbody >
+    <tr>
+        <td rowspan="2" ALIGN="left" VALIGN="top"  class="emoc_doc_table_title"><strong class="wuhu">Parameter:</strong></td>
+    </tr>
+    <tr >
+        <td class="emoc_doc_table_content">
+           <strong>pop: <i>Individual**, default=None</i></strong><br/>&nbsp &nbsp The population which need to be initialized. It's an array of <i>Individual*</i> where each <i>Individual*</i> is a pointer to a individual in the population.<div style="line-height:75%;"><br></div>
+            <strong>pop_num: <i>int, default=None</i></strong><br/>&nbsp &nbsp The size of the given population.<div style="line-height:75%;"><br></div>
+            <strong>obj_num: <i>int, default=None</i></strong><br/>&nbsp &nbsp The number of objectives.
+        </td>
+    </tr>
+    <tr class="emoc_doc_table_title">
+        <td rowspan="2" ALIGN="left" VALIGN="top"  class="emoc_doc_table_title"><strong class="wuhu">Returns:</strong></td>
+    </tr>
+    <tr >
+        <td class="emoc_doc_table_content">
+            <strong>spacing_value: <i>double</i></strong><br/>&nbsp &nbsp Spacing value of current population <i>pop</i>.
+        </td>
+    </tr>
+    </tbody>
+</table>
+

@@ -7,7 +7,7 @@ BookToC: false
 
 # Global Class
 
-*File position: **/EMOC/core/global.h** and **/EMOC/core/global.cpp***
+*File position: **/EMOC/src/core/global.h** and **/EMOC/src/core/global.cpp***
 
 {{< hint info>}}
 **class Global(const char\* algorithm_name, const char\* problem_name, int population_num, int dec_num, int obj_num, int max_evaluation, int thread_id, int output_interval, int run_id = 0)**
@@ -87,7 +87,6 @@ BookToC: false
 
 
 <div id="Init">
-
 {{< hint warning>}}
 **void Init()**
 
